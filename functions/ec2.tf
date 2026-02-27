@@ -1,19 +1,17 @@
 resource "aws_instance" "example" {
-  count = 10
-#   count = length(var.instances) # Length function 
   ami           = "ami-0220d79f3f480ecf5"
   instance_type = "t3.micro"
   vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creaion(Dependency Management)
 
-  tags = {
-    Name = var.instances[count.index] # First 0
-    Project = "roboshop"
-  }
+  tags = merge(
+    var.common_tags,
+    var.ec2_tags
+  )
 }
 
 # Creation of security group
 resource "aws_security_group" "allow_tls" {
-  name        = "allow-all-roboshop" # this is for AWS account  # "allow tls" is for terraform reference
+  name        = "allow-all-terraform" # this is for AWS account  # "allow tls" is for terraform reference
   description = "Allow TLS inbound traffic and all outbound traffic"
 
   egress {
@@ -32,7 +30,8 @@ resource "aws_security_group" "allow_tls" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-  tags = {
-    Name = "allow-all-roboshop"
-  }
+  tags = merge(
+    var.common_tags,
+    var.sg_tags
+  )
 }
