@@ -4,7 +4,7 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creaion(Dependency Management)
 
   tags = {
-    Name = "terraform"
+    Name = "terraform-state-demo"
     Project = "roboshop"
   }
 }
