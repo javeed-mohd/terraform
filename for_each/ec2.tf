@@ -4,7 +4,7 @@ resource "aws_instance" "example" {
   ami           = "ami-0220d79f3f480ecf5"
   # instance_type = each.value # For Map
   instance_type = "t3.micro" # For Set conversion, No requirement of K-V pair
-  vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creaion(Dependency Management)
+  vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creation(Dependency Management)
 
   tags = {
     Name = each.key

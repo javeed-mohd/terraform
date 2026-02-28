@@ -3,7 +3,7 @@
 resource "aws_instance" "example" {
   ami           = local.ami_id
   instance_type = local.instance_type
-  vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creaion(Dependency Management)
+  vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creation(Dependency Management)
 
   /* tags = {
     Name = local.instance_name # 1. To access locals.tf, we use this...

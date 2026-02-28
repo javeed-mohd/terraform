@@ -3,7 +3,7 @@ resource "aws_instance" "example" {
 #   count = length(var.instances) # Length function 
   ami           = "ami-0220d79f3f480ecf5"
   instance_type = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creaion(Dependency Management)
+  vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creation(Dependency Management)
 
   tags = {
     Name = var.instances[count.index] # First 0

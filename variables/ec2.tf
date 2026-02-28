@@ -2,7 +2,7 @@ resource "aws_instance" "example" {
   ami           = var.ami_id
   # if dev t3.micro, otherwise t3.small
   instance_type = var.instance_type
-  vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creaion(Dependency Management) (It is a variable already...)
+  vpc_security_group_ids = [aws_security_group.allow_tls.id] # Dependent on aws_security_group creation(Dependency Management) (It is a variable already...)
 
   tags = var.ec2_tags
 }

@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket  = "remote-state-aws-devops" # Replace with your unique bucket name
-    key     = "locals-demo.tfstate" # .tfstate is optional (This key shuld be different for each file)
+    key     = "locals-demo.tfstate" # .tfstate is optional (This key should be different for each file)
     region  = "us-east-1"
     encrypt = true
     use_lockfile   = true
