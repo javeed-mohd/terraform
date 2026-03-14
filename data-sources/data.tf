@@ -1,4 +1,5 @@
-# data-source
+# Data sources are used to query and fetch existing information from your provider like AWS, so you can use that data in your Terraform configuration.
+# For AMI-ID
 data "aws_ami" "joindevops" {
   most_recent      = true
   owners           = ["973714476881"]
